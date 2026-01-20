@@ -1,3 +1,9 @@
+
+<?php 
+   include "config.php";
+   $query =mysqli_query($conn ,"SELECT * FROM users");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +28,26 @@
             <th>Address</th>
             <th>Actions</th>
          </tr>
+          
+         <?php  
+             
+             $no=1;
+             while($user =mysqli_fetch_assoc($query)):
+            
+          ?>
+
          <tr>
-             <td>1</td>
-             <td>Codehal</td>
-             <td>code@ex.com</td>
-             <td>012345677</td>
-             <td>san francisco usa </td>
-             <td><a href="edit.php">Edit</a>
+             <td><?=  $no++ ?></td>
+             <td><?=  $user["name"] ?></td>
+             <td><?=  $user["email"] ?></td>
+             <td><?= $user["phone"]   ?></td>
+             <td> <?=  $user["address"]  ?> </td>
+             <td>
+                <a href="edit.php">Edit</a>
               <a href="" class="btn-delete">Delete</a></td>
            
          </tr>
+         <?php   endwhile;?>
     </table>
     </div>
 
