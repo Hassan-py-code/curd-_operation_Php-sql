@@ -43,8 +43,8 @@
              <td><?= $user["phone"]   ?></td>
              <td> <?=  $user["address"]  ?> </td>
              <td>
-                <a href="edit.php">Edit</a>
-              <a href="" class="btn-delete">Delete</a></td>
+                <a href="edit.php?id=<?= $user["id"] ?>">Edit</a>
+              <a href="action.php?id=<?= $user["id"] ?>" class="btn-delete" onclick="return confirm('Are you want to delete this user?')">Delete</a></td>
            
          </tr>
          <?php   endwhile;?>
